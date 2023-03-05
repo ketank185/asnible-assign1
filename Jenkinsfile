@@ -21,5 +21,11 @@ pipeline {
 					sh 'ansible all -bm yum -a "name=httpd state=installed" '
 				}
 			}
+			stage ("deploying and starting httpd service") {
+				steps {
+					sh 'ansible all -bm copy "src=index.html dest=/var/www/html/ mod=0777"'
+					sh 'ansible all -bm service "name=httpd state=restarted"'
+				}
+			}
 		}
 }
