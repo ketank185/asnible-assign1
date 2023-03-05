@@ -23,8 +23,8 @@ pipeline {
 			}
 			stage ("deploying and starting httpd service") {
 				steps {
-					sh 'ansible all -bm copy "src=index.html dest=/var/www/html/ mod=0777"'
-					sh 'ansible all -bm service "name=httpd state=restarted"'
+					sh 'ansible all -bm copy -a "src=index.html dest=/var/www/html/ mode=0777"'
+					sh 'ansible all -bm service -a "name=httpd state=restarted"'
 				}
 			}
 		}
