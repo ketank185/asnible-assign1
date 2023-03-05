@@ -1,4 +1,4 @@
-#ansible-assign1
+#!ansible-assign1
 pipeline {
 		agent {
 			label {
