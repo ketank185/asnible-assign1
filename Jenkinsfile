@@ -18,7 +18,7 @@ pipeline {
 			}
 			stage ("installing httpd on hosts") {
 				steps {
-					sh 'ansible all -bma yum "name=httpd state=installed" '
+					sh 'ansible all -bm yum -a "name=httpd state=installed" '
 				}
 			}
 			stage ("deploying and starting httpd service") {
